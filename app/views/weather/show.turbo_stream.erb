@@ -1,22 +1,52 @@
 <%= turbo_stream.replace 'weather' do %>
   <%= turbo_frame_tag 'weather' do %>
     <% if @error %>
-      <p><%= @error %></p>
+      <p class="p-3 mb-2 bg-warning text-dark"><%= @error %></p>
     <% else %>
-      <p>Address: <%= @location.address %></p>
-      <p>Coordinates: <%= @location.coordinates.join(', ') %></p>
-      <p>Current Temperature: <%= @forecast.current_temperature %> °F</p>
-      <p>High Temperature: <%= @forecast.high_temperature %> °F</p>
-      <p>Low Temperature: <%= @forecast.low_temperature %> °F</p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>Address</th>
+            <td><%= @location.address %></td>
+          </tr>
+          <tr class="invisible">
+            <th>Coordinates</th>
+            <td><%= @location.coordinates.join(', ') %></td>
+          </tr>
+          <tr>
+            <th>Current Temperature</th>
+            <td><%= @forecast.current_temperature %> °F</td>
+          </tr>
+          <tr>
+            <th>High Temperature</th>
+            <td><%= @forecast.high_temperature %> °F</td>
+          </tr>
+          <tr>
+            <th>Low Temperature</th>
+            <td><%= @forecast.low_temperature %> °F</td>
+          </tr>
+        </tbody>
+      </table>
       <h3>Extended forecast:</h3>
-      <% @forecast.five_day_forecast.each do |f| %>
-        <p>
-          Date and Time: <%= f[:date] %> <br>
-          Temperature: <%= f[:temp] %> °F <br>
-          Weather: <%= f[:description] %>
-        </p>
-      <% end %>
-      <p>Data fetched from: <%= @from_cache ? 'Cache' : 'API' %></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date and Time</th>
+            <th>Temperature</th>
+            <th>Weather</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @forecast.five_day_forecast.each do |f| %>
+            <tr>
+              <td><%= f[:date] %></td>
+              <td><%= f[:temp] %> °F</td>
+              <td><%= f[:description] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <p class="bg-info p-2"><strong>Data fetched from:</strong> <%= @from_cache ? 'Cache' : 'API' %></p>
     <% end %>
   <% end %>
 <% end %>

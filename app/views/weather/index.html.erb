@@ -1,7 +1,13 @@
-<%= form_with url: root_path, method: :post do %>
-  <%= label_tag :address, "Enter your address:" %>
-  <%= text_field_tag :address %>
-  <%= submit_tag 'Get Weather' %>
-<% end %>
+<div class="container my-5">
+  <%= form_with url: root_path, method: :post, class: "d-flex flex-column" do %>
+    <div class="form-group">
+      <%= label_tag :address, "Enter your address:" %>
+      <%= text_field_tag :address, nil, class: "form-control" %>
+    </div>
+    <%= submit_tag 'Get Weather', class: "btn btn-primary mt-3 align-self-start" %>
+  <% end %>
+</div>
 
-<%= turbo_frame_tag 'weather' %>
+<div class="container">
+  <%= turbo_frame_tag 'weather' %>
+</div>
