@@ -2,4 +2,5 @@
   <p>Address: <%= @location.address %></p>
   <p>Coordinates: <%= @location.coordinates.join(', ') %></p>
   <p>Current Temperature: <%= @forecast['main']['temp'] %> °F</p>
+  <p>Data fetched from: <%= @from_cache ? 'Cache' : 'API' %></p>
 <% end %>
