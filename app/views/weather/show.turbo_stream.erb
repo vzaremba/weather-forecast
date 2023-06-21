@@ -1,4 +1,5 @@
 <%= turbo_frame_tag 'weather' do %>
   <p>Address: <%= @location.address %></p>
   <p>Coordinates: <%= @location.coordinates.join(', ') %></p>
+  <p>Current Temperature: <%= @forecast['main']['temp'] %> °F</p>
 <% end %>
