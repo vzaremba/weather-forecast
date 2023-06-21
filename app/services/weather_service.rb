@@ -5,7 +5,7 @@ class WeatherService
   end
 
   def forecast
-    url = 'http://api.openweathermap.org/data/2.5/weather'
+    url = 'http://api.openweathermap.org/data/2.5/forecast'
     params = {
       lat: @lat,
       lon: @lon,

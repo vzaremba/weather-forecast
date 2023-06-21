@@ -5,7 +5,17 @@
     <% else %>
       <p>Address: <%= @location.address %></p>
       <p>Coordinates: <%= @location.coordinates.join(', ') %></p>
-      <p>Current Temperature: <%= @forecast['main']['temp'] %> °F</p>
+      <p>Current Temperature: <%= @current_temperature %> °F</p>
+      <p>High Temperature: <%= @high_low_temps[:high] %> °F</p>
+      <p>Low Temperature: <%= @high_low_temps[:low] %> °F</p>
+      <h3>Extended forecast:</h3>
+      <% @five_day_forecast.each do |f| %>
+        <p>
+          Date and Time: <%= f[:date] %> <br>
+          Temperature: <%= f[:temp] %> °F <br>
+          Weather: <%= f[:description] %>
+        </p>
+      <% end %>
       <p>Data fetched from: <%= @from_cache ? 'Cache' : 'API' %></p>
     <% end %>
   <% end %>
