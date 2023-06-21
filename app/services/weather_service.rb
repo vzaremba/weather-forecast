@@ -12,11 +12,15 @@ class WeatherService
       APPID: ENV['OPENWEATHER_API_KEY'], units: 'imperial'
     }
     response = Faraday.get(url, params)
-    raise "Error fetching weather: #{response.status}" unless response.success?
+
+    unless response.success?
+      Rails.logger.error "Error fetching weather: #{response.status}"
+      raise "Error fetching weather: #{response.status}"
+    end
 
     JSON.parse(response.body)
   rescue Faraday::Error => e
     Rails.logger.error "Faraday error: #{e.message}"
-    nil
+    raise
   end
 end
