@@ -1,6 +1,12 @@
-<%= turbo_frame_tag 'weather' do %>
-  <p>Address: <%= @location.address %></p>
-  <p>Coordinates: <%= @location.coordinates.join(', ') %></p>
-  <p>Current Temperature: <%= @forecast['main']['temp'] %> °F</p>
-  <p>Data fetched from: <%= @from_cache ? 'Cache' : 'API' %></p>
+<%= turbo_stream.replace 'weather' do %>
+  <%= turbo_frame_tag 'weather' do %>
+    <% if @error %>
+      <p><%= @error %></p>
+    <% else %>
+      <p>Address: <%= @location.address %></p>
+      <p>Coordinates: <%= @location.coordinates.join(', ') %></p>
+      <p>Current Temperature: <%= @forecast['main']['temp'] %> °F</p>
+      <p>Data fetched from: <%= @from_cache ? 'Cache' : 'API' %></p>
+    <% end %>
+  <% end %>
 <% end %>

@@ -1,7 +1,7 @@
-<%= turbo_frame_tag 'weather' do %>
-  <%= form_with url: root_path, method: :post do %>
-    <%= label_tag :address, "Enter your address:" %>
-    <%= text_field_tag :address %>
-    <%= submit_tag 'Get Weather' %>
-  <% end %>
+<%= form_with url: root_path, method: :post do %>
+  <%= label_tag :address, "Enter your address:" %>
+  <%= text_field_tag :address %>
+  <%= submit_tag 'Get Weather' %>
 <% end %>
+
+<%= turbo_frame_tag 'weather' %>
