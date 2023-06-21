@@ -6,9 +6,17 @@ class WeatherService
 
   def forecast
     url = 'http://api.openweathermap.org/data/2.5/weather'
-    params = { lat: @lat, lon: @lon, APPID: ENV['OPENWEATHER_API_KEY'], units: 'imperial' }
+    params = {
+      lat: @lat,
+      lon: @lon,
+      APPID: ENV['OPENWEATHER_API_KEY'], units: 'imperial'
+    }
     response = Faraday.get(url, params)
+    raise "Error fetching weather: #{response.status}" unless response.success?
 
     JSON.parse(response.body)
+  rescue Faraday::Error => e
+    Rails.logger.error "Faraday error: #{e.message}"
+    nil
   end
 end
