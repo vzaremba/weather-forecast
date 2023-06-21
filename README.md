@@ -28,3 +28,7 @@ Visit `http://localhost:3000` in your web browser and enter an address in the fo
 ## Running Tests
 
 Run the test suite with: `bundle exec rspec`
+
+## Screenshot
+
+![WeatherForecast](https://github.com/vzaremba/weather-forecast/assets/1528638/3bae4ebc-f566-41d9-9122-3c12f58a4ada)
