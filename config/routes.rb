@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "weather#index"
+
+  post '/', to: 'weather#show'
 end
