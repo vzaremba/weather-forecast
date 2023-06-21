@@ -1,0 +1,66 @@
+{
+  "cod": "200",
+  "message": 0,
+  "cnt": 40,
+  "list": [
+    {
+      "dt": 1560356400,
+      "main": {
+        "temp": 80.55,
+        "feels_like": 81.86,
+        "temp_min": 79.36,
+        "temp_max": 80.55,
+        "pressure": 1013,
+        "sea_level": 1013,
+        "grnd_level": 1000,
+        "humidity": 51,
+        "temp_kf": 1.19
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "dt_txt": "2019-06-12 15:00:00"
+    },
+    {
+      "dt": 1560367200,
+      "main": {
+        "temp": 80.69,
+        "feels_like": 82.22,
+        "temp_min": 79.96,
+        "temp_max": 80.69,
+        "pressure": 1012,
+        "sea_level": 1012,
+        "grnd_level": 1000,
+        "humidity": 53,
+        "temp_kf": 0.73
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "dt_txt": "2019-06-12 18:00:00"
+    }
+  ],
+  "city": {
+    "id": 1851632,
+    "name": "Chicago",
+    "coord": {
+      "lat": 34.9661,
+      "lon": 138.4039
+    },
+    "country": "US",
+    "population": 0,
+    "timezone": 32400,
+    "sunrise": 1560291420,
+    "sunset": 1560342583
+  }
+}

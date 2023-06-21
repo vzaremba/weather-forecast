@@ -25,7 +25,13 @@ class Forecast
 
   def five_day_forecast
     # Assuming the first forecast in the list starts at midnight and each subsequent forecast is for every 3 hours
-    midday_forecasts = data['list'].each_slice(FORECAST_INTERVALS_PER_DAY).map { |s| s[4] }.first(5)
-    @five_day_forecast ||= midday_forecasts.map { |f| { date: f['dt_txt'], temp: f['main']['temp'], description: f['weather'].first['description'] } }
+    midday_forecasts = data['list'].each_slice(FORECAST_INTERVALS_PER_DAY).map { |s| s[4] }.compact.first(5)
+    @five_day_forecast ||= midday_forecasts.map do |f|
+      {
+        date: f['dt_txt'],
+        temp: f['main']['temp'],
+        description: f['weather'].first['description']
+      }
+    end
   end
 end
